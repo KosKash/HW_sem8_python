@@ -2,10 +2,10 @@ import controller as c
 import os
 import sys
 def initialisation():
+    c.checker_zero()
     c.init()
     clear = lambda: os.system('cls')
     ex = True
-    c.checker_zero()
     while ex == True:
         clear()
         c.print_names()
