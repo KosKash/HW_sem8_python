@@ -1,6 +1,6 @@
-names_list = []
-phones_list = []
 
+phones_list = []
+names_list = []
 def init():
     
     with open('names.csv', 'r', encoding='UTF-8') as data:
@@ -16,13 +16,13 @@ def init():
             phones_list.append(list(line.split(';')))
 
 def print_names():
-    for id in range(len(names_list)):
-        print(f'{names_list[id][0]}:{names_list[id][1]}')
+    for i in range(len(names_list)):
+        print(f'{names_list[i][0]}:{names_list[i][1]}')
 
 def print_numbers_name(id_name: str):
     view = ''
-    view += f'{str(names_list[(int(id_name))-1][1])} '
-    view += str(f'{phones_list[(int(id_name))-1][1]} ')
+    view += f'{str(names_list[(int(id_name)-1)][1])} '
+    view += f'{str(phones_list[(int(id_name)-1)][1])} '
     return (view)
 
 def change_contact():
@@ -46,27 +46,31 @@ def change_contact():
                 phones_list[i][1] = inputing
 
 def checker_zero():
+    
     if len(phones_list) == 0 and len(names_list) == 0:
         print('Your contact list is EMPTY, \nCreate a new contact? ')
         new_id_name = 1
         new_name = input('NAME? ')
         new_number = input('NUMBER? ')
-        new_name = (new_id_name, new_name)
+        new_name = (str(new_id_name), new_name)
         new_name = list(new_name)
         names_list.append(new_name)
-        new_number = (new_id_name, new_number)
+        new_number = (str(new_id_name), new_number)
         new_number = list(new_number)
         phones_list.append(new_number)
 
 def add_contact():
     print("Add Contact mode")
-    new_id_name = int(names_list[-1][0]) + 1
+    if len(names_list) == 2:
+        new_id_name = 2
+    else:
+        new_id_name = int(names_list[-1][0]) + 1
     new_name = input('NAME? ')
     new_number = input('NUMBER? ')
-    new_name = (new_id_name, new_name)
+    new_name = (str(new_id_name), new_name)
     new_name = list(new_name)
     names_list.append(new_name)
-    new_number = (new_id_name, new_number)
+    new_number = (str(new_id_name), new_number)
     new_number = list(new_number)
     phones_list.append(new_number)
 

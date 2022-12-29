@@ -2,8 +2,8 @@ import controller as c
 import os
 import sys
 def initialisation():
-    c.checker_zero()
     c.init()
+    c.checker_zero()
     clear = lambda: os.system('cls')
     ex = True
     while ex == True:
