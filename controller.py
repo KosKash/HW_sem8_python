@@ -61,7 +61,7 @@ def checker_zero():
 
 def add_contact():
     print("Add Contact mode")
-    if len(names_list) == 2:
+    if len(names_list) == 1:
         new_id_name = 2
     else:
         new_id_name = int(names_list[-1][0]) + 1
